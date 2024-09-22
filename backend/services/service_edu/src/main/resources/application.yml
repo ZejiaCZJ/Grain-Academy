@@ -1,0 +1,30 @@
+server:
+  port: 8001
+
+spring:
+
+  application:
+    name: service_edu
+  profiles:
+    active: dev
+
+  #Configuration of MySQL
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/grainacademy
+    username: root
+    password: 05190602Fc@
+
+  #Timezone of the DataTime in the returning JSON
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss #DateTime display format
+    time-zone: GMT+8 #Chinese TimeZone
+
+#Configuration of MyBatis Plus
+mybatis-plus:
+  global-config:
+    #Enable logical deletion
+    db-config:
+      logic-delete-field: deleted #全局逻辑删除字段名
+      logic-delete-value: 1 #删除逻辑值
+      logic-not-delete-value: 0 #未删除逻辑值

@@ -12,7 +12,7 @@ public class CodeGenerator {
                     builder.author("ZejiaCai") // 设置作者
                             .enableSpringdoc() // 开启 springdoc 模式
                             .dateType(DateType.ONLY_DATE)
-                            .outputDir("B:\\Side Project\\Grain Academy\\backend\\services\\service_edu\\src\\main\\java"); // 指定输出目录
+                            .outputDir("B:\\Side Project\\Grain-Academy\\backend\\services\\service_edu\\src\\main\\java"); // 指定输出目录
                 })
                 .packageConfig(builder ->
                         builder.parent("com.grainacademy.backend") // 设置父包名
@@ -25,7 +25,7 @@ public class CodeGenerator {
                                 .idType(IdType.ASSIGN_ID)
                                 .enableLombok()
                 )
-                .templateEngine(new VelocityTemplateEngine()) // 使用Freemarker引擎模板，默认的是Velocity引擎模板
+                .templateEngine(new VelocityTemplateEngine()) // 使用Velocity引擎模板
                 .execute();
     }
 }
