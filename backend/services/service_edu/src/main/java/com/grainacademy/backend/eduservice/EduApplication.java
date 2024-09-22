@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-//@ComponentScan(basePackages = {"com.grainacademy"})
 public class EduApplication {
 
     //http://localhost:8001/swagger-ui/index.html
