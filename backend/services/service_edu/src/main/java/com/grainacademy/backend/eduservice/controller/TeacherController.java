@@ -1,9 +1,11 @@
 package com.grainacademy.backend.eduservice.controller;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.grainacademy.backend.commonutils.*;
 import com.grainacademy.backend.eduservice.entity.Teacher;
 import com.grainacademy.backend.eduservice.service.ITeacherService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,19 +34,26 @@ public class TeacherController {
     @GetMapping("findAll")
     @Operation(summary="findAll", description = "Search all teachers")
     @ApiResponse(description = "return all undeleted teachers")
-    public List<Teacher> findAllTeachers(){
+    public Result findAllTeachers(){
+
+
         List<Teacher> teacherList = teacherService.list((Wrapper<Teacher>) null);
-        System.out.println("Got the following result" + teacherList);
-        return teacherList;
+
+        return Result.succeed().data("items", teacherList);
     }
 
     //Delete a specific teacher from the table
     @DeleteMapping("{id}")
     @Operation(summary="removeTeacher", description = "Delete a teacher by id")
+    @Parameter(name = "id", description = "The id that need to be deleted")
     @ApiResponse(description = "return true/false on the deletion")
-    public boolean removeTeacher(@PathVariable String id)
+    public Result removeTeacher(@PathVariable String id)
     {
-        return teacherService.removeById(id);
+        boolean flag = teacherService.removeById(id);
+        if(flag)
+            return Result.succeed();
+        else
+            return Result.failed();
     }
 
 

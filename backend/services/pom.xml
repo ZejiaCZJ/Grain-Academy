@@ -11,7 +11,7 @@
 
     <groupId>org.grainacademy</groupId>
     <artifactId>services</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+
     <packaging>pom</packaging>
     <modules>
         <module>service_edu</module>
@@ -81,13 +81,14 @@
             <optional>true</optional>
         </dependency>
 
-        <!--self defined dependency in common/service_base
+
+
+        <!--self defined dependency in common/service_base-->
         <dependency>
             <groupId>org.grainacademy</groupId>
-            <artifactId>service_base</artifactId>
+            <artifactId>common_utils</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-        -->
 
     </dependencies>
 
