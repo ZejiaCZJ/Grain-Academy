@@ -28,3 +28,24 @@ mybatis-plus:
       logic-delete-field: deleted #全局逻辑删除字段名
       logic-delete-value: 1 #删除逻辑值
       logic-not-delete-value: 0 #未删除逻辑值
+
+
+#Configuration for springdoc-openai
+springdoc:
+  swagger-ui:
+    #springdoc access address
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      #需要扫描的包,这里需要改成你自己的.
+      packages-to-scan: com.grainacademy.backend
+
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn

@@ -46,6 +46,7 @@
         <spring-boot.version>3.2.10</spring-boot.version>
         <spring-cloud.version>2023.0.3</spring-cloud.version>
         <swagger-bootstrap-ui.version>1.9.2</swagger-bootstrap-ui.version>
+        <knife4j.version>4.1.0</knife4j.version>
     </properties>
 
 
@@ -96,13 +97,19 @@
             </dependency>
             -->
 
-            <!--swagger-->
+            <!--swagger
             <dependency>
                 <groupId>org.springdoc</groupId>
                 <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
                 <version>${openapi.version}</version>
             </dependency>
+            -->
 
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
 
 
             <!--swagger-bootstrap-ui 可以添加请求头测试-->
