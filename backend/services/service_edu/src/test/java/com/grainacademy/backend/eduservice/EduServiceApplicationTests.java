@@ -21,6 +21,7 @@ public class EduServiceApplicationTests {
         teacher.setCareer("至尊导师");
         teacher.setLevel(1);
         teacher.setName("Zejia");
+        System.out.println("Hello world");
         teacherMapper.insert(teacher);
     }
 

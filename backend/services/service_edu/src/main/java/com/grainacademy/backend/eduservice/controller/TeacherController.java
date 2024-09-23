@@ -1,18 +1,25 @@
 package com.grainacademy.backend.eduservice.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.grainacademy.backend.eduservice.entity.vo.TeacherVo;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.grainacademy.backend.commonutils.*;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.grainacademy.backend.commonutils.Result;
 import com.grainacademy.backend.eduservice.entity.Teacher;
 import com.grainacademy.backend.eduservice.service.ITeacherService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.apache.catalina.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -31,12 +38,10 @@ public class TeacherController {
     private ITeacherService teacherService;
 
     //Search all teachers in the teacher table
-    @GetMapping("findAll")
-    @Operation(summary="findAll", description = "Search all teachers")
-    @ApiResponse(description = "return all undeleted teachers")
-    public Result findAllTeachers(){
-
-
+    @GetMapping("")
+    @Operation(summary="selectAllTeachers", description = "Search all teachers")
+    @ApiResponse(description = "data field: return all undeleted teachers")
+    public Result selectAllTeachers(){
         List<Teacher> teacherList = teacherService.list((Wrapper<Teacher>) null);
 
         return Result.succeed().data("items", teacherList);
@@ -44,17 +49,74 @@ public class TeacherController {
 
     //Delete a specific teacher from the table
     @DeleteMapping("{id}")
-    @Operation(summary="removeTeacher", description = "Delete a teacher by id")
+    @Operation(summary="removeTeacherById", description = "Delete a teacher by id")
     @Parameter(name = "id", description = "The id that need to be deleted")
-    @ApiResponse(description = "return true/false on the deletion")
-    public Result removeTeacher(@PathVariable String id)
+    @ApiResponse(description = "return the corresponding Result code on the deletion")
+    public Result removeTeacherById(@PathVariable String id)
     {
         boolean flag = teacherService.removeById(id);
         if(flag)
             return Result.succeed();
         else
-            return Result.failed();
+            return Result.failed().data("Error message", "Id not found in database");
     }
+
+    //Retrieve pages of teachers
+    @GetMapping("/{current}/{limit}")
+    @Operation(summary="selectTeacherByPage", description = "Retrieve the desired page of teachers")
+    @Parameter(name = "current", description = "the page number")
+    @Parameter(name = "limit", description = "the number of teachers in this page")
+    @ApiResponse(description="data field: return teachers in the given page number")
+    public Result selectTeacherByPage(@PathVariable long current, @PathVariable long limit){
+        Page<Teacher> pageTeacher = new Page<>(current, limit);
+        teacherService.page(pageTeacher, null);
+
+        long total = pageTeacher.getTotal();
+        List<Teacher> records = pageTeacher.getRecords();
+
+        if(records == null)
+            return Result.failed().data("failed reason", "failed to retrieve the teacher list in the required page");
+
+        Map<String, Object> data = new HashMap<String, Object>();
+        data.put("count", total);
+        data.put("rows", records);
+
+        return Result.succeed().data(data);
+    }
+
+    //Retrieve pages of teachers with dynamic conditions
+    @PostMapping("/condition/{current}/{limit}")
+    public Result selectTeacherByPageAndCondition(@PathVariable long current, @PathVariable long limit, @RequestBody(required = false) TeacherVo teachervo){
+        Page<Teacher> pageTeacher = new Page<>(current, limit);
+        QueryWrapper<Teacher> teacherQueryWrapper = new QueryWrapper<>();
+
+        System.out.println(teachervo);
+
+        String name = teachervo.getName();
+        Integer level = teachervo.getLevel();
+        String begin = teachervo.getBegin();
+        String end= teachervo.getEnd();
+
+        if(StringUtils.hasLength(name))
+            teacherQueryWrapper.like("name", name);
+
+        if(level != null && level >= 0)
+            teacherQueryWrapper.eq("level", level);
+        if(StringUtils.hasLength(begin))
+            teacherQueryWrapper.ge("gmt_create", begin);
+        if(StringUtils.hasLength(end))
+            teacherQueryWrapper.le("gmt_create", end);
+
+
+        teacherService.page(pageTeacher, teacherQueryWrapper);
+        long total = pageTeacher.getTotal();
+        List<Teacher> records = pageTeacher.getRecords();
+
+        return Result.succeed().data("total", total).data("rows", records);
+    }
+
+
+
 
 
 }

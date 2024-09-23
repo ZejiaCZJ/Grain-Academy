@@ -1,4 +1,5 @@
-package com.grainacademy.backend.eduservice.handler;
+package com.grainacademy.backend.servicebase.handler;
+
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.stereotype.Component;
@@ -6,7 +7,9 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 @Component
-public class EduMetaObjectHandler implements MetaObjectHandler {
+public class BackendMetaObjectHandler implements MetaObjectHandler {
+
+
     @Override
     public void insertFill(MetaObject metaObject) {
         this.setFieldValByName("gmtCreate", new Date(), metaObject);
@@ -18,4 +21,3 @@ public class EduMetaObjectHandler implements MetaObjectHandler {
         this.setFieldValByName("gmtModified", new Date(), metaObject);
     }
 }
-
