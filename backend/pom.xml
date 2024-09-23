@@ -16,6 +16,7 @@
     <modules>
         <module>services</module>
         <module>services/service_edu</module>
+        <module>common</module>
     </modules>
 
     <version>0.0.1-SNAPSHOT</version>
