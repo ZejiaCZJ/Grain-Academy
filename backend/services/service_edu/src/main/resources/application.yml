@@ -45,7 +45,14 @@ springdoc:
       #需要扫描的包,这里需要改成你自己的.
       packages-to-scan: com.grainacademy.backend
 
+#A UI Booster for Swagger
 knife4j:
   enable: true
   setting:
     language: zh_cn
+
+#Configuration for log message level
+#logging:
+  #level:
+    #root: INFO #OFF, FATAL, ERROR, WARN, INFO, DEBUG, ALL (default: INFO)
+               #low<--------------------------------->high (For example, INFO will print WARN/ERROR/FATAL/OFF message)

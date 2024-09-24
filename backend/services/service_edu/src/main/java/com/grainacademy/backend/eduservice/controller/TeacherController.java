@@ -45,14 +45,9 @@ public class TeacherController {
     @Operation(summary="selectAllTeachers", description = "Search all teachers")
     @ApiResponse(description = "data field: return all undeleted teachers")
     public Result selectAllTeachers(){
-        try{
-            List<Teacher> teacherList = teacherService.list((Wrapper<Teacher>) null);
+        List<Teacher> teacherList = teacherService.list((Wrapper<Teacher>) null);
 
-            return Result.succeed().data("records", teacherList);
-        } catch(Exception e)
-        {
-            return Result.failed().message("Failed to query teachers");
-        }
+        return Result.succeed().data("records", teacherList);
 
     }
 
@@ -63,21 +58,12 @@ public class TeacherController {
     @ApiResponse(description = "return the corresponding Result code on the deletion")
     public Result removeTeacherById(@PathVariable String id)
     {
-        try{
-            boolean flag = teacherService.removeById(id);
+        boolean flag = teacherService.removeById(id);
 
-            if(flag)
-                return Result.succeed();
-            else
-                return Result.failed().message("Id not found in database");
-        }catch(NoSuchElementException e){
+        if (flag)
+            return Result.succeed();
+        else
             return Result.failed().message("Id not found in database");
-        }catch (DataAccessException e) {
-            return Result.failed().message("Database access error: " + e.getMessage());
-        }catch (Exception e) {
-            return Result.failed().message("Failed to remove teacher");
-        }
-
     }
 
     //Retrieve pages of teachers
@@ -90,22 +76,17 @@ public class TeacherController {
         Page<Teacher> pageTeacher = new Page<>(current, limit);
         teacherService.page(pageTeacher, null);
 
-        try{
-            long total = pageTeacher.getTotal();
-            List<Teacher> records = pageTeacher.getRecords();
+        long total = pageTeacher.getTotal();
+        List<Teacher> records = pageTeacher.getRecords();
 
-            if(records == null)
-                return Result.failed().message("failed to retrieve the teacher list in the required page");
+        if (records == null)
+            return Result.failed().message("failed to retrieve the teacher list in the required page");
 
-            Map<String, Object> data = new HashMap<String, Object>();
-            data.put("count", total);
-            data.put("records", records);
+        Map<String, Object> data = new HashMap<String, Object>();
+        data.put("count", total);
+        data.put("records", records);
 
-            return Result.succeed().data(data);
-        } catch (Exception e){
-            return Result.failed().message("Failed to query teachers");
-        }
-
+        return Result.succeed().data(data);
     }
 
     //Retrieve pages of teachers with dynamic conditions
@@ -119,48 +100,37 @@ public class TeacherController {
         Page<Teacher> pageTeacher = new Page<>(current, limit);
         QueryWrapper<Teacher> teacherQueryWrapper = new QueryWrapper<>();
 
+        String name = teachervo.getName();
+        Integer level = teachervo.getLevel();
+        String begin = teachervo.getBegin();
+        String end = teachervo.getEnd();
 
-        try {
-            String name = teachervo.getName();
-            Integer level = teachervo.getLevel();
-            String begin = teachervo.getBegin();
-            String end = teachervo.getEnd();
+        if (StringUtils.hasLength(name))
+            teacherQueryWrapper.like("name", name);
 
-            if (StringUtils.hasLength(name))
-                teacherQueryWrapper.like("name", name);
-
-            if (level != null && level >= 0)
-                teacherQueryWrapper.eq("level", level);
-            if (StringUtils.hasLength(begin))
-                teacherQueryWrapper.ge("gmt_create", begin);
-            if (StringUtils.hasLength(end))
-                teacherQueryWrapper.le("gmt_create", end);
+        if (level != null && level >= 0)
+            teacherQueryWrapper.eq("level", level);
+        if (StringUtils.hasLength(begin))
+            teacherQueryWrapper.ge("gmt_create", begin);
+        if (StringUtils.hasLength(end))
+            teacherQueryWrapper.le("gmt_create", end);
 
 
-            teacherService.page(pageTeacher, teacherQueryWrapper);
-            long total = pageTeacher.getTotal();
-            List<Teacher> records = pageTeacher.getRecords();
+        teacherService.page(pageTeacher, teacherQueryWrapper);
+        long total = pageTeacher.getTotal();
+        List<Teacher> records = pageTeacher.getRecords();
 
-            return Result.succeed().data("total", total).data("records", records);
-        }catch (Exception e) {
-            return Result.failed().message("Failed to query teacher");
-        }
+        return Result.succeed().data("total", total).data("records", records);
     }
 
     @PostMapping("")
     @Operation(summary="addTeacher", description = "Add a teacher to the table")
     @ApiResponse(description="status of the addition")
     public Result addTeacher(@RequestBody Teacher teacher){
-        try{
-            boolean save = teacherService.save(teacher);
-            if(!save)
-                return Result.failed().message("failed to add a new teacher");
-            return Result.succeed();
-        } catch(DuplicateKeyException e){
-            return Result.failed().message("ID already found in database");
-        } catch (Exception e) {
-            return Result.failed().message("Failed to add a new teacher");
-        }
+        boolean save = teacherService.save(teacher);
+        if(!save)
+            return Result.failed().message("failed to add a new teacher");
+        return Result.succeed();
     }
 
     @GetMapping("{id}")
@@ -168,12 +138,8 @@ public class TeacherController {
     @Parameter(name = "id", description = "the teacher id")
     @ApiResponse(description="data field: the teacher with the given id")
     public Result searchTeacherById(@PathVariable Integer id){
-        try{
-            Teacher teacher = teacherService.getById(id);
-            return Result.succeed().data("records", teacher);
-        } catch (Exception e){
-            return Result.failed().message("Failed to search the teacher by id");
-        }
+        Teacher teacher = teacherService.getById(id);
+        return Result.succeed().data("records", teacher);
     }
 
     @PutMapping("")
@@ -181,17 +147,13 @@ public class TeacherController {
     @Parameter(name = "id", description = "the teacher")
     @ApiResponse(description="status of the update")
     public Result updateTeacher(@RequestBody Teacher teacher){
-        try{
-            boolean flag = teacherService.updateById(teacher);
-            if(flag)
-                return Result.succeed();
-            else
-                return Result.failed().message("failed to update the given teacher");
-        }
-        catch (Exception e)
-        {
-            return Result.failed().message("Failed to update the teacher");
-        }
+
+        boolean flag = teacherService.updateById(teacher);
+        if (flag)
+            return Result.succeed();
+        else
+            return Result.failed().message("failed to update the given teacher");
+
     }
 
 }
