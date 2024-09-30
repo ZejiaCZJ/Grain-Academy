@@ -1,0 +1,20 @@
+<script>
+    //定义对象
+    let user = {"name":"lucy", "age":20}
+
+    //传统方法获取值
+    let name1 = user.name
+    let age1 = user.age
+    console.log(name1+"=="+age1)
+
+    //es6方法获取值
+    let {name, age} = user //--->必须要变量名和对象里面的变量名一样
+    console.log(name+"=="+age)
+
+    let {name: name2, age: age2} = user; //--->这样可以用不一样的变量名
+    console.log(name2+"=="+age2)
+
+    name = "Zejia"
+    console.log(name+"=="+age)
+    
+</script>

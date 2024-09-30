@@ -36,6 +36,7 @@ import java.util.NoSuchElementException;
 @RestController
 @RequestMapping("/eduservice/teacher")
 @Tag(name = "TeacherController", description = "操作老师信息的接口")
+@CrossOrigin
 public class TeacherController {
     @Autowired
     private ITeacherService teacherService;

@@ -1,0 +1,19 @@
+<script>
+    //1. 拷贝对象
+    let person1 = {"name":"lucy", "age":20}
+    
+    let person2 = {...person1}//深拷贝
+
+    console.log(person2)
+
+    let person3 = {name:"lucy", age: 10}
+    console.log(person3)
+
+    //2. 合并对象
+    let name = {first_name: "mary", last_name: "chen"}
+    let age = {age: 10}
+    
+    let p2 = {...name, ...age}
+    console.log(p2)
+
+</script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!--单向绑定 v-bind-->
+        <input type = "text" v-bind:value="searchMap.keyword"/>
+        <!--双向绑定 v-model-->
+        <input type = "text"v-model="searchMap.keyword"/>
+
+        <p>{{searchMap.keyword}}</p>
+    </div>
+    <script src="vue.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                searchMap:{
+                    keyword: 'ZejiaCai'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

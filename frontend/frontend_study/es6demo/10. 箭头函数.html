@@ -1,0 +1,39 @@
+<script>
+    //传统方法
+    var f1 = function(b){
+        return b
+    }
+
+    function a(b){
+        return b
+    }
+
+    function d(x, y){
+        return x+y
+    }
+
+    var x = f1(14)
+    var y = a(14)
+    var z = d(10, 15)
+
+    console.log(x)
+    console.log(y)
+    console.log(z)
+
+    //es6方法
+    var a = b => b
+    var z = a(15)
+    console.log(z)
+
+    var b = b => b+10
+    var z = b(15)
+    console.log(z)
+
+    var d = (x, y) => x + y
+    var z = d(10, 15)
+    console.log(z)
+
+
+    
+
+</script>

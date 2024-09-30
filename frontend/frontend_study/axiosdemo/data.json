@@ -1,0 +1,12 @@
+{
+    "success":true,
+    "code":20000,
+    "message":"成功",
+    "data":{
+        "items":[
+            {"name":"lucy","age":23},
+            {"name": "andy", "age":25},
+            {"name":"wilfred","age":28}
+        ]
+    }
+}
