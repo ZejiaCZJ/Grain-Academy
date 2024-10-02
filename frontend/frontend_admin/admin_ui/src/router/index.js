@@ -73,7 +73,14 @@ export const constantRoutes = [
         name: 'Add New Teacher',
         component: () => import('@/views/edu/admin/teacher/save.vue'),
         meta: { title: 'Add New Teacher', icon: 'tree' }
-      }
+      },
+      {
+        path: 'edit/:id',
+        name: 'Edit Information',
+        component: () => import('@/views/edu/admin/teacher/save.vue'),
+        meta: {title: 'Edit Information', noCache: true},
+        hidden: true
+      } 
     ]
   },
 

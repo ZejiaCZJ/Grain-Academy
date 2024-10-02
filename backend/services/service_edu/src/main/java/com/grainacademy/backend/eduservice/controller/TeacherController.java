@@ -12,6 +12,7 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.apache.catalina.util.StringUtil;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DuplicateKeyException;
@@ -116,6 +117,7 @@ public class TeacherController {
         if (StringUtils.hasLength(end))
             teacherQueryWrapper.le("gmt_create", end);
 
+        teacherQueryWrapper.orderByDesc("gmt_create");
 
         teacherService.page(pageTeacher, teacherQueryWrapper);
         long total = pageTeacher.getTotal();
@@ -126,6 +128,7 @@ public class TeacherController {
 
     @PostMapping("")
     @Operation(summary="addTeacher", description = "Add a teacher to the table")
+    @Parameter(name = "teacher", description = "A teacher's information")
     @ApiResponse(description="status of the addition")
     public Result addTeacher(@RequestBody Teacher teacher){
         boolean save = teacherService.save(teacher);
@@ -138,7 +141,7 @@ public class TeacherController {
     @Operation(summary="searchTeacherById", description = "Search the teacher by the given id")
     @Parameter(name = "id", description = "the teacher id")
     @ApiResponse(description="data field: the teacher with the given id")
-    public Result searchTeacherById(@PathVariable Integer id){
+    public Result searchTeacherById(@PathVariable String id){
         Teacher teacher = teacherService.getById(id);
         return Result.succeed().data("records", teacher);
     }

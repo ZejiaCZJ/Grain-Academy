@@ -1,50 +1,8 @@
-2024-09-30 00:07:47.215 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 8001 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 8001 or configure this application to listen on another port.
-
-2024-09-30 00:07:59.661 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 8001 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 8001 or configure this application to listen on another port.
-
-2024-09-30 00:08:29.553 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 8001 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 8001 or configure this application to listen on another port.
-
-2024-09-30 00:12:10.193 [http-nio-8001-exec-3] ERROR c.g.b.servicebase.handler.BackEndExceptionHandler - No static resource favicon.ico.
-2024-09-30 02:21:21.699 [http-nio-8001-exec-10] ERROR c.g.b.servicebase.handler.BackEndExceptionHandler - No static resource administration/user/login.
-2024-09-30 02:21:58.309 [http-nio-8001-exec-3] ERROR c.g.b.servicebase.handler.BackEndExceptionHandler - Request method 'GET' is not supported
-2024-09-30 02:22:33.818 [http-nio-8001-exec-2] ERROR c.g.b.servicebase.handler.BackEndExceptionHandler - Request method 'GET' is not supported
-2024-09-30 02:28:00.229 [http-nio-8001-exec-4] ERROR c.g.b.servicebase.handler.BackEndExceptionHandler - No static resource administration/user/info.
-2024-09-30 02:44:35.529 [http-nio-8001-exec-1] ERROR c.g.b.servicebase.handler.BackEndExceptionHandler - No static resource eduservice/teacher.
-2024-09-30 02:46:09.545 [http-nio-8001-exec-1] ERROR c.g.b.servicebase.handler.BackEndExceptionHandler - No static resource eduservice/teacher.
-2024-09-30 02:57:29.240 [http-nio-8001-exec-4] ERROR c.g.b.servicebase.handler.BackEndExceptionHandler - No static resource eduservice/teacher.
+2024-10-02 01:38:17.054 [http-nio-8001-exec-2] ERROR c.g.b.servicebase.handler.BackEndExceptionHandler - Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; For input string: "1841370261296013313"
+2024-10-02 01:38:30.213 [http-nio-8001-exec-7] ERROR c.g.b.servicebase.handler.BackEndExceptionHandler - Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; For input string: "1841370261296013313"
+2024-10-02 01:38:31.446 [http-nio-8001-exec-4] ERROR c.g.b.servicebase.handler.BackEndExceptionHandler - Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; For input string: "1841370261296013313"
+2024-10-02 01:38:33.195 [http-nio-8001-exec-9] ERROR c.g.b.servicebase.handler.BackEndExceptionHandler - Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; For input string: "1841370261296013313"
+2024-10-02 01:38:51.130 [http-nio-8001-exec-2] ERROR c.g.b.servicebase.handler.BackEndExceptionHandler - Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; For input string: "1841370261296013313"
+2024-10-02 01:39:20.839 [http-nio-8001-exec-4] ERROR c.g.b.servicebase.handler.BackEndExceptionHandler - Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; For input string: "1841370261296013313"
+2024-10-02 01:39:30.988 [http-nio-8001-exec-1] ERROR c.g.b.servicebase.handler.BackEndExceptionHandler - Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; For input string: "1841369974539837441"
+2024-10-02 01:40:28.343 [http-nio-8001-exec-7] ERROR c.g.b.servicebase.handler.BackEndExceptionHandler - Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; For input string: "1841369974539837441"
