@@ -8,7 +8,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/administration/user")
+@RequestMapping("/eduservice/administration/user")
 @Tag(name = "AdminUserController", description = "操作后台管理者信息的接口")
 @CrossOrigin
 public class AdminUserController {
@@ -27,7 +27,7 @@ public class AdminUserController {
 
     @PostMapping("logout")
     public Result Logout(){
-        return Result.failed();
+        return Result.succeed();
     }
 
 }

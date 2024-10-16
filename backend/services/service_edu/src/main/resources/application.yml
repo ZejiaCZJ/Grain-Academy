@@ -30,7 +30,7 @@ mybatis-plus:
       logic-not-delete-value: 0 #未删除逻辑值
 
 
-#Configuration for springdoc-openai
+#Configuration for springdoc-openapi
 springdoc:
   swagger-ui:
     #springdoc access address

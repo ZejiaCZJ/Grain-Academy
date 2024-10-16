@@ -19,7 +19,7 @@ public class CodeGenerator {
                                 .moduleName("eduservice") // 设置父包模块名
                 )
                 .strategyConfig(builder ->
-                        builder.addInclude("edu_teacher") // 设置需要生成的表名
+                        builder.addInclude("edu_subject") // 设置需要生成的表名
                                 .addTablePrefix("edu_") // 设置过滤表前缀
                                 .entityBuilder()
                                 .idType(IdType.ASSIGN_ID)

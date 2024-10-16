@@ -85,6 +85,28 @@ export const constantRoutes = [
   },
 
   {
+    path: '/subjects',
+    component: Layout,
+    redirect: '/subjects/list',
+    name: 'Subjects',
+    meta: { title: 'Subjects', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: 'list',
+        name: 'Subjects List',
+        component: () => import('@/views/edu/admin/subjects/list.vue'),
+        meta: { title: 'Subjects List', icon: 'table' }
+      },
+      {
+        path: 'add',
+        name: 'Add New Subject',
+        component: () => import('@/views/edu/admin/subjects/save.vue'),
+        meta: { title: 'Add New Subject', icon: 'tree' }
+      },
+    ]
+  },
+
+  {
     path: '/example',
     component: Layout,
     redirect: '/example/table',

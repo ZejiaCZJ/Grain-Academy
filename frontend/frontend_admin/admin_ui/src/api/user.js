@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function login(data) {
   return request({
-    url: '/administration/user/login',
+    url: '/eduservice/administration/user/login',
     method: 'post',
     data
   })
@@ -10,7 +10,7 @@ export function login(data) {
 
 export function getInfo(token) {
   return request({
-    url: '/administration/user/info',
+    url: '/eduservice/administration/user/info',
     method: 'get',
     params: { token }
   })
@@ -18,7 +18,7 @@ export function getInfo(token) {
 
 export function logout() {
   return request({
-    url: '/administration/user/logout',
+    url: '/eduservice/administration/user/logout',
     method: 'post'
   })
 }

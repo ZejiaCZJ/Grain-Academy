@@ -1,0 +1,6 @@
+2024-10-07 00:03:44.692 [http-nio-8001-exec-4] ERROR c.g.b.servicebase.handler.BackEndExceptionHandler - No static resource eduservice/eduservice/subject.
+2024-10-07 00:12:34.535 [http-nio-8001-exec-5] ERROR c.g.b.servicebase.handler.BackEndExceptionHandler - No static resource eduservice/eduservice/subject.
+2024-10-07 00:18:13.060 [http-nio-8001-exec-1] ERROR c.g.b.servicebase.handler.BackEndExceptionHandler - No static resource eduservice/eduservice/subject.
+2024-10-07 00:21:06.906 [http-nio-8001-exec-1] ERROR c.g.b.servicebase.handler.BackEndExceptionHandler - No static resource eduservice/eduservice/subject.
+2024-10-07 00:21:21.729 [http-nio-8001-exec-7] ERROR c.g.b.servicebase.handler.BackEndExceptionHandler - No static resource eduservice/eduservice/subject.
+2024-10-07 00:23:11.801 [http-nio-8001-exec-4] ERROR c.g.b.servicebase.handler.BackEndExceptionHandler - No static resource eduservice/eduservice/subject.

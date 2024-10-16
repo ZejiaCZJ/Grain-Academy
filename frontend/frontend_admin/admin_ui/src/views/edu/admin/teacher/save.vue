@@ -2,9 +2,25 @@
     <div class="app-container">
       <el-form :label-position="labelPosition" :model="teacher" :rules="formRules" ref="teacher" label-width="120px">
 
-        <!-- <el-form-item label="Avatar">
-          <el-input v-model="teacher.name"></el-input>
-        </el-form-item> -->
+        <el-form-item label="Avatar">
+          <!--Image thumbnail-->
+          <pan-thumb :image="teacher.avatar"/>
+
+          <!--Image Upload button-->
+          <el-button type="primary" icon="el-icon-upload" @click="imagecropperShow=true">Upload</el-button>
+
+          <image-cropper
+                v-show="imagecropperShow"
+                :width="300"
+                :height="300"
+                :key="imagecropperKey"
+                :url="'/ossservice/file'"
+                field="file"
+                @close="close"
+                @crop-upload-success="cropSuccess"/>
+
+        </el-form-item>
+
 
 
         <el-form-item label="Name" prop="name">
@@ -38,12 +54,17 @@
 
 <script>
 import teachers from "@/api/edu/teacher.js"
+import ImageCropper from '@/components/ImageCropper'
+import PanThumb from '@/components/PanThumb'
 
 export default{
+  components:{ImageCropper, PanThumb},
   data(){
     return{
       labelPosition: "left",
-      teacher:{},
+      teacher:{
+        avatar: "https://guli-file-190513.oss-cn-beijing.aliyuncs.com/avatar/default.jpg"
+      },
       formRules:{
         name: [
           {required: true, message:"Please input the teacher's name", trigger:'blur'}
@@ -55,6 +76,10 @@ export default{
           {required: true,trigger:'blur'}
         ]
       },
+      imagecropperShow:false,
+      imagecropperKey:0,
+      BASE_API:process.env.BASE_API,
+
     }
   },
   created(){
@@ -67,9 +92,6 @@ export default{
     saveOrUpdate(teacher){
       this.$refs[teacher].validate((valid) =>{
         if (valid){
-          if(!('avatar' in this.teacher))
-            this.teacher.avatar = "https://guli-file-190513.oss-cn-beijing.aliyuncs.com/avatar/default.jpg"
-
           if(this.$route.params && this.$route.params.id){
             this.updateTeacher()
           }
@@ -82,7 +104,7 @@ export default{
         }
       })
     },
-    saveTeacher(){
+    saveTeacher(){ //Save a new teacher
       teachers.addTeacher(this.teacher).then(response => {
               this.$message({type:"success",message:"Added a teacher"})
               this.$router.push({path:'/teacher/list'})
@@ -91,7 +113,7 @@ export default{
               this.$message({type:"error",message:"Failed to add a teacher"})
             })
     },
-    updateTeacher(){
+    updateTeacher(){ //Update a current teacher
       teachers.updateTeacher(this.teacher).then(response => {
               this.$message({type:"success",message:"Updated a teacher"})
               this.$router.push({path:'/teacher/list'})
@@ -100,16 +122,25 @@ export default{
               this.$message({type:"error",message:"Failed to update a teacher"})
             })
     },
-    resetForm(formName) {
+    resetForm(formName) { //Reset the form 
         this.$refs[formName].resetFields()
     },
-    getInfo(id){
+    getInfo(id){ //Get the information of a teacher by id
       teachers.searchTeacherById(id).then(response => {
         this.teacher = response.data.records
       }).catch(error => {
         this.$message({type:"error",message:"Failed to retrieve the teacher's information"})
         this.$router.push({path:'/teacher/list'})
       })
+    },
+    close(){ //Close the pop-up window
+      this.imagecropperShow = false
+      this.imagecropperKey = this.imagecropperKey + 1
+    },
+    cropSuccess(data){
+      this.imagecropperShow = false
+      this.teacher.avatar = data.records
+      this.imagecropperKey = this.imagecropperKey + 1
     }
   }
 }
