@@ -17,7 +17,6 @@ public class SubjectVo {
     public SubjectVo(String id, String title){
         this.id = id;
         this.label = title;
-        this.children = new ArrayList<>();
     }
 
 }

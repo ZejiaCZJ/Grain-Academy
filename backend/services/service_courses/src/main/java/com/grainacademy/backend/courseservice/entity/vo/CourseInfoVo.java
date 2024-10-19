@@ -17,6 +17,9 @@ public class CourseInfoVo {
     @Schema(description = "Subject Id")
     private String subjectId;
 
+    @Schema(description = "Subject Parent Id")
+    private String subjectParentId;
+
     @Schema(description = "Course Title")
     private String title;
 

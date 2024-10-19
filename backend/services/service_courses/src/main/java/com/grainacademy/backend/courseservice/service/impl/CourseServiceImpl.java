@@ -27,7 +27,7 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
     private CourseDescriptionService courseDescriptionService;
 
     @Override
-    public void saveCourseInfo(CourseInfoVo courseInfoVo) {
+    public String saveCourseInfo(CourseInfoVo courseInfoVo) {
         //Add a Course record
         Course course = new Course();
 
@@ -41,7 +41,6 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
 //        course.setCover(courseInfoVo.getCover());
         BeanUtils.copyProperties(courseInfoVo, course);// This performs a relatively deep copy
         course.setStatus("Draft");
-        course.setSubjectParentId("0");
 
         int insert = baseMapper.insert(course);
 
@@ -57,5 +56,7 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
         courseDescription.setDescription(courseInfoVo.getDescription());
         courseDescription.setId(cid);
         courseDescriptionService.save(courseDescription);
+
+        return cid;
     }
 }

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2024-10-15
  */
 @RestController
-@RequestMapping("/eduservice/video")
+@RequestMapping("/coursesservice/video")
 public class VideoController {
 
 }

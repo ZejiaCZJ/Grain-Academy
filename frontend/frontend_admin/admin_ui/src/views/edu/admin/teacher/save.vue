@@ -14,7 +14,7 @@
                 :width="300"
                 :height="300"
                 :key="imagecropperKey"
-                :url="'/ossservice/file'"
+                :url="'/ossservice/file/teacher'"
                 field="file"
                 @close="close"
                 @crop-upload-success="cropSuccess"/>

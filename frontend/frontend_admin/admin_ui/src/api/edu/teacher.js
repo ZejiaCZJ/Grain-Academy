@@ -4,6 +4,14 @@ var api = "/eduservice/teacher"
 
 export default {
 
+    //Get: get all teachers
+    getAllTeachers(){
+      return request({
+        url: `${api}`,
+        method: 'get',
+      })
+    },
+
     //GET: query a list of teachers using pagination and condition
     //PARAMS:
     //  current: the current page number

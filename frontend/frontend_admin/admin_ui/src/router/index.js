@@ -107,6 +107,49 @@ export const constantRoutes = [
   },
 
   {
+    path: '/courses',
+    component: Layout,
+    redirect: '/courses/list',
+    name: 'Courses',
+    meta: { title: 'Courses', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: 'list',
+        name: 'Courses List',
+        component: () => import('@/views/edu/admin/courses/list.vue'),
+        meta: { title: 'Course List', icon: 'table' }
+      },
+      {
+        path: 'info',
+        name: 'Add a New Course',
+        component: () => import('@/views/edu/admin/courses/info.vue'),
+        meta: { title: 'Add New Course', icon: 'tree' }
+      },
+      {
+        path: 'info/:id',
+        name: 'Edit Course Information',
+        component: () => import('@/views/edu/admin/courses/info.vue'),
+        meta: {title: 'Edit Course Information', noCache: true},
+        hidden: true
+      } ,
+      {
+        path: 'chapter/:id',
+        name: 'Edit Course Chapters',
+        component: () => import('@/views/edu/admin/courses/chapter.vue'),
+        meta: {title: 'Edit Course Chapters', noCache: true},
+        hidden: true
+      } ,
+      {
+        path: 'publish/:id',
+        name: 'Edit Course Details',
+        component: () => import('@/views/edu/admin/courses/publish.vue'),
+        meta: {title: 'Edit Course Details', noCache: true},
+        hidden: true
+      } ,
+    ]
+  },
+
+  {
     path: '/example',
     component: Layout,
     redirect: '/example/table',

@@ -4,10 +4,7 @@ import com.grainacademy.backend.commonutils.Result;
 import com.grainacademy.backend.ossservice.service.OssService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
@@ -19,10 +16,18 @@ public class OssController {
     @Autowired
     private OssService ossService;
 
-    @PostMapping()
-    public Result uploadOssFile(MultipartFile file){
+    @PostMapping("/{type}")
+    public Result uploadOssFile(@PathVariable String type, MultipartFile file){
 
-        String url = ossService.uploadProfileAvatar(file);
+        String url = ossService.uploadProfileAvatar(file, type);
+
+        return Result.succeed().data("records", url);
+    }
+
+    @DeleteMapping("")
+    public Result deleteOssFile(@RequestBody String url){
+
+        ossService.deleteOssFile(url);
 
         return Result.succeed().data("records", url);
     }

@@ -94,6 +94,7 @@ public class SubjectController {
         for (Subject subject : allSubjects) {
             if (subject.getParentId().equals("0")) {
                 SubjectVo classOneVo = new SubjectVo(subject.getId(), subject.getTitle());
+                classOneVo.setChildren(new ArrayList<>());
                 subjectLists.add(classOneVo);
                 classOneMap.put(subject.getId(), classOneVo);
             }

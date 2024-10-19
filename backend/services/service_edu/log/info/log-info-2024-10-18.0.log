@@ -1,0 +1,55 @@
+2024-10-18 06:29:49.360 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-10-18 06:29:49.368 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-10-18 06:30:05.397 [main] INFO  c.grainacademy.backend.eduservice.EduApplication - Starting EduApplication using Java 19.0.1 with PID 37224 (B:\Side Project\Grain-Academy\backend\services\service_edu\target\classes started by Zejia Cai in B:\Side Project\Grain-Academy\backend)
+2024-10-18 06:30:05.398 [main] INFO  c.grainacademy.backend.eduservice.EduApplication - The following 1 profile is active: "dev"
+2024-10-18 06:30:06.226 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8001 (http)
+2024-10-18 06:30:06.244 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8001"]
+2024-10-18 06:30:06.246 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-18 06:30:06.247 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-18 06:30:06.283 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-18 06:30:06.284 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 854 ms
+2024-10-18 06:30:07.206 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8001"]
+2024-10-18 06:30:07.217 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8001 (http) with context path ''
+2024-10-18 06:30:07.223 [main] INFO  c.grainacademy.backend.eduservice.EduApplication - Started EduApplication in 2.152 seconds (process running for 2.916)
+2024-10-18 06:30:13.558 [http-nio-8001-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-18 06:30:13.558 [http-nio-8001-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-18 06:30:13.559 [http-nio-8001-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-18 06:30:13.938 [http-nio-8001-exec-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-18 06:30:14.138 [http-nio-8001-exec-5] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@e00a371
+2024-10-18 06:30:14.139 [http-nio-8001-exec-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-18 07:07:45.948 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-10-18 07:07:45.951 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-10-18 07:07:47.989 [main] INFO  c.grainacademy.backend.eduservice.EduApplication - Starting EduApplication using Java 19.0.1 with PID 38564 (B:\Side Project\Grain-Academy\backend\services\service_edu\target\classes started by Zejia Cai in B:\Side Project\Grain-Academy\backend)
+2024-10-18 07:07:47.990 [main] INFO  c.grainacademy.backend.eduservice.EduApplication - The following 1 profile is active: "dev"
+2024-10-18 07:07:48.804 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8001 (http)
+2024-10-18 07:07:48.811 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8001"]
+2024-10-18 07:07:48.814 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-18 07:07:48.816 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-18 07:07:48.858 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-18 07:07:48.858 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 837 ms
+2024-10-18 07:07:49.764 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8001"]
+2024-10-18 07:07:49.774 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8001 (http) with context path ''
+2024-10-18 07:07:49.780 [main] INFO  c.grainacademy.backend.eduservice.EduApplication - Started EduApplication in 2.114 seconds (process running for 2.465)
+2024-10-18 07:10:17.145 [http-nio-8001-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-18 07:10:17.145 [http-nio-8001-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-18 07:10:17.145 [http-nio-8001-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-10-18 07:10:17.199 [http-nio-8001-exec-4] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-18 07:10:17.366 [http-nio-8001-exec-4] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4a6c6e4c
+2024-10-18 07:10:17.367 [http-nio-8001-exec-4] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-18 18:03:06.031 [main] INFO  c.grainacademy.backend.eduservice.EduApplication - Starting EduApplication using Java 19.0.1 with PID 30848 (B:\Side Project\Grain-Academy\backend\services\service_edu\target\classes started by Zejia Cai in B:\Side Project\Grain-Academy\backend)
+2024-10-18 18:03:06.033 [main] INFO  c.grainacademy.backend.eduservice.EduApplication - The following 1 profile is active: "dev"
+2024-10-18 18:03:06.915 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8001 (http)
+2024-10-18 18:03:06.921 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8001"]
+2024-10-18 18:03:06.924 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-18 18:03:06.924 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-18 18:03:06.963 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-18 18:03:06.963 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 891 ms
+2024-10-18 18:03:07.943 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8001"]
+2024-10-18 18:03:07.955 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8001 (http) with context path ''
+2024-10-18 18:03:07.962 [main] INFO  c.grainacademy.backend.eduservice.EduApplication - Started EduApplication in 2.369 seconds (process running for 2.819)
+2024-10-18 18:41:43.643 [http-nio-8001-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-18 18:41:43.644 [http-nio-8001-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-18 18:41:43.645 [http-nio-8001-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-18 18:41:43.821 [http-nio-8001-exec-9] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-18 18:41:44.020 [http-nio-8001-exec-9] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@8cb6394
+2024-10-18 18:41:44.021 [http-nio-8001-exec-9] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.

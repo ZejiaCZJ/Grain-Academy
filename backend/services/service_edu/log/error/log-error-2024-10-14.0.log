@@ -1,4 +1,4 @@
-2024-10-01 07:53:08.158 [http-nio-8001-exec-5] ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
+2024-10-14 10:01:43.210 [http-nio-8001-exec-6] ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
 com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
@@ -29,25 +29,25 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 	at com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor.willDoQuery(PaginationInnerInterceptor.java:135)
 	at com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor.intercept(MybatisPlusInterceptor.java:75)
 	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:59)
-	at jdk.proxy2/jdk.proxy2.$Proxy110.query(Unknown Source)
+	at jdk.proxy2/jdk.proxy2.$Proxy111.query(Unknown Source)
 	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154)
 	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
 	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425)
-	at jdk.proxy2/jdk.proxy2.$Proxy88.selectList(Unknown Source)
+	at jdk.proxy2/jdk.proxy2.$Proxy85.selectList(Unknown Source)
 	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224)
 	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.executeForMany(MybatisMapperMethod.java:164)
 	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:77)
 	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:152)
 	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89)
-	at jdk.proxy2/jdk.proxy2.$Proxy93.selectList(Unknown Source)
+	at jdk.proxy2/jdk.proxy2.$Proxy94.selectList(Unknown Source)
 	at com.baomidou.mybatisplus.core.mapper.BaseMapper.selectPage(BaseMapper.java:432)
 	at java.base/java.lang.invoke.MethodHandle.invokeWithArguments(MethodHandle.java:733)
 	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$DefaultMethodInvoker.invoke(MybatisMapperProxy.java:166)
 	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89)
-	at jdk.proxy2/jdk.proxy2.$Proxy93.selectPage(Unknown Source)
+	at jdk.proxy2/jdk.proxy2.$Proxy94.selectPage(Unknown Source)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355)
@@ -56,14 +56,14 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
-	at jdk.proxy2/jdk.proxy2.$Proxy94.selectPage(Unknown Source)
+	at jdk.proxy2/jdk.proxy2.$Proxy95.selectPage(Unknown Source)
 	at com.baomidou.mybatisplus.extension.service.IService.page(IService.java:449)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:716)
 	at com.grainacademy.backend.eduservice.service.impl.TeacherServiceImpl$$SpringCGLIB$$0.page(<generated>)
-	at com.grainacademy.backend.eduservice.controller.TeacherController.selectTeacherByPageAndCondition(TeacherController.java:120)
+	at com.grainacademy.backend.eduservice.controller.TeacherController.selectTeacherByPageAndCondition(TeacherController.java:122)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
@@ -137,4 +137,4 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153)
 	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:62)
 	... 110 common frames omitted
-2024-10-01 07:53:08.193 [http-nio-8001-exec-5] ERROR c.g.b.servicebase.handler.BackEndExceptionHandler - null
+2024-10-14 10:01:43.246 [http-nio-8001-exec-6] ERROR c.g.b.servicebase.handler.BackEndExceptionHandler - null

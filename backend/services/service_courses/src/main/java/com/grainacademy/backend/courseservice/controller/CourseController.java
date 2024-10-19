@@ -15,18 +15,18 @@ import org.springframework.web.bind.annotation.*;
  * @since 2024-10-15
  */
 @RestController
-@RequestMapping("/eduservice/course")
+@RequestMapping("/coursesservice/course")
 @CrossOrigin
 public class CourseController {
     @Autowired
     private CourseService courseService;
 
-    @PostMapping
+    @PostMapping("/add")
     public Result addCourseInfo(@RequestBody CourseInfoVo courseInfoVo){
-        courseService.saveCourseInfo(courseInfoVo);
+        String id = courseService.saveCourseInfo(courseInfoVo);
 
 
-        return Result.succeed();
+        return Result.succeed().data("records", id);
     }
 
 
