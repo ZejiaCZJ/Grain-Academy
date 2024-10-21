@@ -32,13 +32,6 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
         Course course = new Course();
 
         //Deep copy
-//        course.setId(courseInfoVo.getId());
-//        course.setTeacherId(courseInfoVo.getTeacherId());
-//        course.setSubjectId(courseInfoVo.getSubjectId());
-//        course.setTitle(courseInfoVo.getTitle());
-//        course.setPrice(courseInfoVo.getPrice());
-//        course.setLessonNum(courseInfoVo.getLessonNum());
-//        course.setCover(courseInfoVo.getCover());
         BeanUtils.copyProperties(courseInfoVo, course);// This performs a relatively deep copy
         course.setStatus("Draft");
 
@@ -58,5 +51,42 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
         courseDescriptionService.save(courseDescription);
 
         return cid;
+    }
+
+    @Override
+    public CourseInfoVo getCourseInfo(String id) {
+
+        Course course = baseMapper.selectById(id);
+        CourseInfoVo courseInfoVo = new CourseInfoVo();
+        BeanUtils.copyProperties(course, courseInfoVo);
+        CourseDescription courseDescription = courseDescriptionService.getById(id);
+
+        courseInfoVo.setDescription(courseDescription.getDescription());
+
+
+
+        return courseInfoVo;
+    }
+
+    @Override
+    public String updateCourseInfo(CourseInfoVo courseInfoVo) {
+        //Add a Course record
+        Course course = new Course();
+
+        //Deep copy
+        BeanUtils.copyProperties(courseInfoVo, course);// This performs a relatively deep copy
+        course.setStatus("Draft");
+
+        baseMapper.updateById(course);
+
+        //Update course description
+        CourseDescription courseDescription = new CourseDescription();
+        courseDescription.setDescription(courseInfoVo.getDescription());
+        courseDescription.setId(courseInfoVo.getId());
+        courseDescriptionService.updateById(courseDescription);
+
+
+
+        return course.getId();
     }
 }

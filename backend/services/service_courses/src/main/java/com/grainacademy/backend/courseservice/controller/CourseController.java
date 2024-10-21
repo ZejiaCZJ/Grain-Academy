@@ -29,5 +29,19 @@ public class CourseController {
         return Result.succeed().data("records", id);
     }
 
+    @GetMapping("/{id}")
+    public Result getCourseInfo(@PathVariable String id){
+
+        CourseInfoVo vo = courseService.getCourseInfo(id);
+
+        return Result.succeed().data("records", vo);
+    }
+
+    @PutMapping
+    public Result updateCourseInfo(@RequestBody CourseInfoVo courseInfoVo){
+        String id = courseService.updateCourseInfo(courseInfoVo);
+
+        return Result.succeed().data("records", id);
+    }
 
 }

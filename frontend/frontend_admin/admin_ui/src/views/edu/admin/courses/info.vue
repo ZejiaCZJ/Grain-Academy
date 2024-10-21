@@ -41,8 +41,9 @@
 
             <!-- Cover -->
             <el-form-item label="Cover" required>
-                <el-upload drag :limit="1" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload" :on-remove="handleAvatarRemove"
-                    list-type="picture" :action="BASE_API + '/ossservice/file/courses'" class="avatar-uploader">
+                <el-upload drag :limit="1" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload"
+                    :on-remove="handleAvatarRemove" list-type="picture" :action="BASE_API + '/ossservice/file/courses'" :file-list="cover_url"
+                    class="avatar-uploader">
                     <i class="el-icon-upload"></i>
                     <div class="el-upload__text">Drop file here, or <em>click to upload</em></div>
                     <div class="el-upload__tip" slot="tip">one jpg only with a size less than 2MB</div>
@@ -100,11 +101,17 @@ export default{
                 label: 'label'
             },
             BASE_API: process.env.VUE_APP_BASE_API,
+            cover_url: [],
+            current_id: ""
         }
     },
     created(){
         this.getAllTeachers()
-        this.getAllSubjects()    
+        this.getAllSubjects()
+        if (this.$route.params && this.$route.params.id) {
+            this.current_id = this.$route.params.id
+            this.getCourseInfo(this.current_id)
+        }
     },
     methods:{
         getAllTeachers(){
@@ -124,15 +131,11 @@ export default{
         next(formName){
             this.$refs[formName].validate((valid) => {
                 if (valid) {
-                    courses.addCourseInfo(this.courseInfo).then(response => {
-                        this.$notify.success({
-                            title: 'Success',
-                            message: "Added a course's basic information",
-                            showClose: false
-                        })
-                        var id = response.data.records
-                        this.$router.push({ path: `/courses/chapter/${id}` })
-                    })
+                    if (this.current_id !== "") {
+                        this.updateCourseInfo()
+                    } else {
+                        this.addCourseInfo()
+                    }
                 }
                 else{
                     this.$notify.error({
@@ -142,6 +145,28 @@ export default{
                         })
                     return false
                 }
+            })
+        },
+        addCourseInfo(){
+            courses.addCourseInfo(this.courseInfo).then(response => {
+                this.$notify.success({
+                    title: 'Success',
+                    message: "Added a course's basic information",
+                    showClose: false
+                })
+                var id = response.data.records
+                this.$router.push({ path: `/courses/chapter/${id}` })
+            })
+        },
+        updateCourseInfo() {
+            courses.updateCourseInfo(this.courseInfo).then(response => {
+                this.$notify.success({
+                    title: 'Success',
+                    message: "Updated the course's basic information",
+                    showClose: false
+                })
+                var id = response.data.records
+                this.$router.push({ path: `/courses/chapter/${id}` })
             })
         },
         handleAvatarSuccess(response) {
@@ -169,7 +194,19 @@ export default{
             }
             return isJPG && isLt2M
         },
-
+        //获取课程基础信息
+        getCourseInfo(id){
+            courses.getCourseInfo(id).then(response => {
+                this.courseInfo = response.data.records
+                this.subjectIds = [this.courseInfo.subjectParentId, this.courseInfo.subjectId]
+                if (this.courseInfo.cover !== "") {
+                    // Extract the file name from the URL
+                    let fileNameWithUUID = this.courseInfo.cover.split('/').pop();
+                    let filename = fileNameWithUUID.slice(32);
+                    this.cover_url = [{ name: filename, url: this.courseInfo.cover }]
+                }
+            })
+        }
     }
 }
 </script>
