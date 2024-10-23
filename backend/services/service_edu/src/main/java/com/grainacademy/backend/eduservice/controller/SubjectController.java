@@ -106,6 +106,9 @@ public class SubjectController {
                 // Get corresponding class one subject
                 SubjectVo classOneVo = classOneMap.get(subject.getParentId());
                 if (classOneVo != null) {
+                    if(classOneVo.getChildren() == null){
+                      classOneVo.setChildren(new ArrayList<>());
+                    }
                     classOneVo.getChildren().add(new SubjectVo(subject.getId(), subject.getTitle()));
                 }
             }
