@@ -34,6 +34,13 @@ export default {
             url: `${api}/${id}`,
             method: 'delete',
         })
-    }
+    },
+    addVideo(video){
+        return request({
+            url: `${api}`,
+            method: 'post',
+            data: video
+        })
+    },
 
 }
